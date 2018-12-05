@@ -2,7 +2,7 @@
 //2- thunk allows you dispatch async actions along with regular sync actions
 //3- action is an object describes the change
 
-import {GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT} from './type';
+import {GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from './type';
 import axios from 'axios';
 
 export const getContacts = ()=> async dispatch =>{
@@ -24,9 +24,10 @@ export const addContact = (contact) => async dispatch =>{
 }
 
 export const deleteContact = (id) => async dispatch =>{
-    const res = await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
     dispatch({
         type: DELETE_CONTACT,
         payload: id
     })
 }
+
