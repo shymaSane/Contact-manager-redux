@@ -28,6 +28,12 @@ export default function(state = initialState, action){
                 ...state,
                 contacts: state.contacts.filter(contact =>  contact.id !== action.payload)
             }
+        case UPDATE_CONTACT:
+            const{id} = action.payload
+            return {
+                ...state,
+                contacts: state.contacts.map(contact => contact.id === id ? contact = {id, ...action.payload.user} : contact)
+            }
         default:
             return state
     }

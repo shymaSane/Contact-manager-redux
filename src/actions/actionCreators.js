@@ -40,3 +40,11 @@ export const deleteContact = (id) => async dispatch =>{
     })
 }
 
+export const updateContact = (id, user) => async dispatch => {
+    const res = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, {user});
+    dispatch({
+        type: UPDATE_CONTACT,
+        payload: res.data
+    })
+}
+
