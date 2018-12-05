@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {DELETE_CONTACT} from '../../actions/type'
+import {deleteContact} from '../../actions/actionCreators'
 
 class Contact extends Component {
   state = {
@@ -63,9 +63,7 @@ Contact.propTypes = {
   deleteContact: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteContact : (id) => dispatch({type: DELETE_CONTACT, payload: id})
-})
 
 
-export default connect(null, mapDispatchToProps)(Contact);
+
+export default connect(null, {deleteContact})(Contact);

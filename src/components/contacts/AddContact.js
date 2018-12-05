@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextInputGroup from '../layout/TextInputGroup';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {ADD_CONTACT} from '../../actions/type'
+import {addContact} from '../../actions/actionCreators'
 
 class AddContact extends Component {
   state = {
@@ -103,8 +103,5 @@ AddContact.propTypes = {
   addContact: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addContact : (user) => dispatch({type: ADD_CONTACT, payload: user})
-})
 
-export default connect(null, mapDispatchToProps)(AddContact);
+export default connect(null, {addContact})(AddContact);

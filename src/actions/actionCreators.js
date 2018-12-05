@@ -1,0 +1,25 @@
+// we need this: 1- The main reason for separating the action creators from the reducer function is that the reducer function must be a pure function. If you wanted to do something in an action creator, like an asynchronous API call for instance, then you could not put this in the reducer
+//2- thunk allows you dispatch aysnc actions along with regular sync actions
+//3- action is an object describes the change
+
+import {GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT} from './type';
+
+export const getContacts = () =>{
+    return {
+        type: GET_CONTACTS
+    }
+}
+
+export const addContact = (contact) =>{
+    return {
+        type: ADD_CONTACT,
+        payload: contact
+    }
+}
+
+export const deleteContact = (id) =>{
+    return {
+        type: DELETE_CONTACT,
+        payload: id
+    }
+}
