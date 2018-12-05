@@ -33,7 +33,7 @@ export default function(state = initialState, action){
         case ADD_CONTACT:
             return {
                 ...state,
-                contacts: [...state, ...action.payload]
+                contacts: [...state.contacts, action.payload]
             }
         case DELETE_CONTACT:
             return{

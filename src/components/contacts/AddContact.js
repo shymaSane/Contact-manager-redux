@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import TextInputGroup from '../layout/TextInputGroup';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {ADD_CONTACT} from '../../actions/type'
 
 class AddContact extends Component {
   state = {
@@ -37,7 +40,7 @@ class AddContact extends Component {
     };
 
     //// SUBMIT CONTACT ////
-
+    this.props.addContact(newContact)
     // Clear State
     this.setState({
       name: '',
@@ -96,4 +99,12 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+AddContact.propTypes = {
+  addContact: PropTypes.func.isRequired
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  addContact : (user) => dispatch({type: ADD_CONTACT, payload: user})
+})
+
+export default connect(null, mapDispatchToProps)(AddContact);
