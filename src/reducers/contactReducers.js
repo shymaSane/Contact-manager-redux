@@ -1,8 +1,9 @@
-import {GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT} from '../actions/type'
+import {GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT, UPDATE_CONTACT} from '../actions/type'
 
 //each reducers has its intial state
 const initialState = {
-    contacts: []
+    contacts: [],
+    contact: {}
 };
 
 export default function(state = initialState, action){
@@ -11,6 +12,11 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 contacts: action.payload
+            }
+        case EDIT_CONTACT:
+            return {
+                ...state,
+                contact: action.payload
             }
         case ADD_CONTACT:
             return {
