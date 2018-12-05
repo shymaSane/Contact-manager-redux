@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Contact from './Contact';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {GET_CONTACTS, ADD_CONTACTS, DELETE_CONTACTS} from '../../actions/type'
+import {GET_CONTACTS} from '../../actions/type'
 
 class Contacts extends Component {
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {DELETE_CONTACT} from '../../actions/type'
 
 class Contact extends Component {
   state = {
@@ -8,7 +10,7 @@ class Contact extends Component {
   };
 
   onDeleteClick = id => {
-    //// DELETE CONTACT ////
+    this.props.deleteContact(id)
   };
 
   render() {
@@ -57,7 +59,13 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object.isRequired
+  contact: PropTypes.object.isRequired,
+  deleteContact: PropTypes.func.isRequired
 };
 
-export default Contact;
+const mapDispatchToProps = (dispatch) => ({
+  deleteContact : (id) => dispatch({type: DELETE_CONTACT, payload: id})
+})
+
+
+export default connect(null, mapDispatchToProps)(Contact);
