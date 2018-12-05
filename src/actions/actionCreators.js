@@ -15,11 +15,12 @@ export const getContacts = ()=> async dispatch =>{
     ) 
 }
 
-export const addContact = (contact) =>{
-    return {
+export const addContact = (contact) => async dispatch =>{
+    const res = await axios.post(`https://jsonplaceholder.typicode.com/users`, {contact})
+    dispatch({
         type: ADD_CONTACT,
-        payload: contact
-    }
+        payload: res.data.contact
+    })
 }
 
 export const deleteContact = (id) =>{
